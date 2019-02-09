@@ -1,8 +1,6 @@
 import React from 'react';
 
 import './landing-page.css';
-import {Link} from 'react-router-dom';
-import Signin from './signin'
 
 export default function LandingPage(props) {
     return (

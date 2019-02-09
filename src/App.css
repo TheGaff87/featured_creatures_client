@@ -31,3 +31,10 @@
   }
 }
 
+label {
+  display: block;
+}
+
+form {
+  margin-top: 2em;
+}
