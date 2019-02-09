@@ -1,5 +1,12 @@
 language: node_js
- node_js: node
- cache:
-   directories:
-     - node_modules
+node_js: node
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: V9JhubLQV3921jRTcGslpOm1Lp9W+t+CGwDAunKxfYB2vUURXH+umgxbLLtFd1tibjItfFc7xxr35POZw6wLxYgSi5Af5WZ2pXTPlHvJcseC6FZT+c8qky1YXRloz+1AgH2+AjqHpCIMVk5lC+LpQMET2ANzmIbH3Vek6ZCvPU9w+4cdHWeyO6D1+S5vHywXyE76sKeFSroSKRUv8OKl6whbLhfvq5QG8JBTVeNMl23YUkaSHdjtjjcsu+g7LmNYUXX4SP+Ymm/fR5P938Clchtdm4hN+Sg8Hm7tMK6PisBJT9M1KSroGnG/GA6+s217/pzhIxo1fd40KibVcOeeKFAAVEtZi1CCglR6GthmkBfR94Y19m44MT1/r/1iE/ldYPgAJ9VqGxCQtyElsx0KlPAVwNMtjd6kB+eB6R7rbrG5mBhbQdr7OD/TiGjzpZYQHkwt0MudnFD/OUmWzecDwbDAV01gfTD7lgu8RA/0smg/Y08N1mlSOseVIkwp4o0sMdr5+ItuezHWF2CeR28G2yXLdVUzfdxFVq3EVKZ+5RYqaq4a0KP87/QX5VP13pD3mewU7/bBDEKWJJjAPTN0tUKxpek4hD5LVEPZX/wWFGpbILJgZgAZnDUG//ebCGZ/XE4t3schI1zluxU7Hmb/I1S9HZwc2kr3G4+N9g9Eza8=
+  app: featured-creatures
+  on:
+    repo: TheGaff87/featured_creatures_client
