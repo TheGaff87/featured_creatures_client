@@ -1,0 +1,25 @@
+.signin-select,
+.add-encounter-button {
+    float: left;
+}
+
+.signin-select {
+    margin-right: 1em;
+}
+
+.dropdowns {
+    clear: both;
+}
+
+.animal-dropdown,
+.zoo-dropdown {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.animal-dropdown {
+    margin-right: -17em;
+}
+.zoo-dropdown {
+    margin-left: 27em;
+}

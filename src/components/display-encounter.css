@@ -1,0 +1,17 @@
+.display-encounter img {
+    width: 300px;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 1em;
+}
+
+.display-encounter {
+    border: 1px black solid;
+    width: 50%;
+    margin-top: 2em;
+}
+
+.display-encounter p {
+    text-align: center;
+}

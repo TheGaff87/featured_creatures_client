@@ -1,3 +1,7 @@
 .add-encounter form {
     margin-top: 2em;
 }
+
+.hidden {
+    display: none;
+}
