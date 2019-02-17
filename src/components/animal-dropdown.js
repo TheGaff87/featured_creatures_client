@@ -2,15 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 export function AnimalDropdown(props) {
+    const animals = props.animals.map((animal, index) => (
+        <option key={index} value={animal}>
+            {animal}
+        </option>
+    ));
+
     return (
         <select name="animal-dropdown" className="animal-dropdown">
-            <option value={props.animal}>{props.animal}</option>
+            {animals}
         </select>
     );
 }
 
 const mapStateToProps = state => ({
-    animal: state.animal
+    animals: state.animals
   });
   
   export default connect(mapStateToProps)(AnimalDropdown);

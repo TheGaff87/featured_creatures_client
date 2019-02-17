@@ -19,6 +19,7 @@ export default function Main(props) {
                 <ZooDropdown />
             </section>
             <section className="results">
+                <h2>Kangaroo Encounters</h2>
                 <DisplayEncounter />
                 <DisplayZoo />
             </section>
