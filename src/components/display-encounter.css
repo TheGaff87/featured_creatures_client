@@ -15,3 +15,7 @@
 .display-encounter p {
     text-align: center;
 }
+
+.display-encounter span {
+    font-weight: bold;
+}
