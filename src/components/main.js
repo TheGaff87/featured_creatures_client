@@ -4,22 +4,24 @@ import AddEncounter from './add-encounter';
 import AnimalDropdown from './animal-dropdown';
 import ZooDropdown from './zoo-dropdown';
 import DisplayEncounter from './display-encounter';
-import DisplayZoo from './display-zoo'
+import DisplayZoo from './display-zoo';
+import Dropdowns from './dropdowns';
 import './main.css';
 
 export default function Main(props) {
     return (
         <div className="main">
+        <h2>Use the dropdowns to get started</h2>
             <section className="top-buttons">
                 <Signin />
-                <AddEncounter />
             </section>
             <section className="dropdowns">
                 <AnimalDropdown />
                 <ZooDropdown />
             </section>
             <section className="results">
-                <h2>Kangaroo Encounters</h2>
+                {/*<Dropdowns />*/}
+                <h3>Kangaroo Encounters</h3>
                 <DisplayEncounter />
                 <DisplayZoo />
             </section>

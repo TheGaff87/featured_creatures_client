@@ -9,9 +9,12 @@ export function ZooDropdown(props) {
     ));
 
     return (
-        <select name="animal-dropdown" className="animal-dropdown">
+        <div>
+        <h3>Zoos</h3>
+        <select name="zoo-dropdown" className="zoo-dropdown">
             {zoos}
         </select>
+        </div>
     );
 }
 

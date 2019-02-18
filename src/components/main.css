@@ -9,14 +9,18 @@
 
 .dropdowns {
     clear: both;
-}
-
-.animal-dropdown,
-.zoo-dropdown {
     margin-top: 2em;
-    margin-bottom: 1em;
 }
 
 .animal-dropdown {
     margin-right: 2em;
+}
+
+.animal-dropdown,
+.zoo-dropdown {
+    margin-left: 1em;
+}
+
+.dropdowns h3 {
+    display: inline-block;
 }

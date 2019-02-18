@@ -14,7 +14,6 @@ class App extends Component {
       <div>
       <header>
         <h1>Featured Creatures</h1>
-        <h2>Use the dropdowns to get started</h2>
       </header>
       <main>
         <Route exact path="/" component={LandingPage} />
