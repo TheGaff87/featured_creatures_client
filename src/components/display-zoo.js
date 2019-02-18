@@ -5,7 +5,7 @@ import DisplayEncounter from './display-encounter';
 export function DisplayZoo(props) {
     return (
         <section className="display-zoo">
-            <h2>Animal Encounters at <a href={props.zooWebsite} target='_blank'>{props.zooName}</a></h2>
+            <h3>Animal Encounters at <a href={props.zooWebsite} target='_blank'>{props.zooName}</a></h3>
             <DisplayEncounter />
         </section>
     );
