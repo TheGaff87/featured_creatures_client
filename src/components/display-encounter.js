@@ -6,7 +6,7 @@ export function DisplayEncounter(props) {
     return (
         <section className="display-encounter">
             <img src={props.encounterImage} alt={props.encounterName} />
-            <p><span>Encounter Name</span>: {props.encounterName}</p>
+            <p><span>Encounter Name</span>: <a href={props.encounterWebsite} target='_blank'/>{props.encounterName}</p>
             <p><span>Zoo Name</span>: <a href={props.zooWebsite} target='_blank'>{props.zooName} </a></p>
             <p><span>Zoo Location</span>: {props.zooLocation}</p>
             <p><span>Encounter Cost</span>: {props.encounterCost}</p>
@@ -19,6 +19,7 @@ export function DisplayEncounter(props) {
 const mapStateToProps = state => ({
     encounterImage: state.encounterImage,
     encounterName: state.encounterName,
+    encounterWebsite: state.encounterWebsite,
     zooName: state.zooName,
     zooWebsite: state.zooWebsite,
     zooLocation: state.zooLocation,
