@@ -16,3 +16,20 @@ export const getAnimalsSuccess = animals => ({
     type: GET_ANIMALS_SUCCESS,
     animals
 });
+
+export const getZoos = () => dispatch => {
+    fetch(`${API_BASE_URL}/zoos`).then(res => {
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    }).then(zoos => {
+        dispatch(getZoosSuccess(zoos));
+    });
+};
+
+export const GET_ZOOS_SUCCESS = 'GET_ZOOS_SUCCESS';
+export const getZoosSuccess = zoos => ({
+    type: GET_ZOOS_SUCCESS,
+    zoos
+});

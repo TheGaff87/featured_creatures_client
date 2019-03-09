@@ -21,6 +21,11 @@ export default (state = initialState, action) => {
             animal: action.animals
         })
     }
+    if (action.type === actions.GET_ZOOS_SUCCESS) {
+        return Object.assign({}, state, {
+            zoo: action.zoos
+        })
+    }
 
 
     return state;
