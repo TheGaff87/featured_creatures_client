@@ -1,20 +1,29 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import TextInput from './text-input';
+
 import './signin.css'
 
-export default function Signin(props) {
+export  function Signin(props) {
+    if (props.showSigninForm) {
     return (
-        <section className="signin">
-        <button type="button" className="signin-select">Signin/Signup</button>
-            <form action="/api/users/" method="post" className="signin-form hidden">
-            <label>
-                <input type="text" size="35" name="username" className="username" aria-label="username" placeholder="Enter username" required />
-            </label>
-            <label>
-                <input type="password" size="35" name="password" className="password" aria-label="password" placeholder="Password must be at least 5 characters" required />
-            </label>
-            <button type="submit" class="signup-button">Sign up</button>
+        <section className='signin'>
+            <form action='/api/users/' method='post' className='signin-form'>
+            <TextInput field='Username (required)' className='username' placeholder='Enter username' />
+            <TextInput field='Password (required)' className='password' placeholder='Password must be at least 5 characters' />
+            <button type="submit" className="signup-button">Sign up</button>
             <button type="submit" className="signin-button">Signin</button>
             </form>
         </section>
-    );
+    )
+    } else {
+        return null
+    }
 }
+
+const mapStateToProps = state => ({
+    showSigninForm: state.showSigninForm
+  });
+  
+  export default connect(mapStateToProps)(Signin);
