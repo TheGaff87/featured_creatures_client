@@ -2,6 +2,7 @@ import React from 'react';
 import {
     BrowserRouter as Router,
     Route} from 'react-router-dom';
+import { connect } from 'react-redux';
 import SigninButton from './signin-button';
 import Signin from './signin';
 import LoggedIn from './logged-in';
@@ -13,7 +14,12 @@ import DisplayEncounter from './display-encounter';
 import DisplayZoo from './display-zoo';
 import './main.css';
 
-export default function Main(props) {
+export class Main extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
     return (
         <Router>
         <div className="main">
@@ -37,3 +43,10 @@ export default function Main(props) {
         </Router>
     );
 }
+}
+
+const mapStateToProps = state => ({
+    encounter: state.encounters.animal
+  });
+  
+  export default connect(mapStateToProps)(Main);

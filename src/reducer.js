@@ -26,7 +26,11 @@ export default (state = initialState, action) => {
             zoo: action.zoos
         })
     }
-
+    if (action.type === actions.GET_ENCOUNTERS_SUCCESS) {
+        return Object.assign({}, state, {
+            encounters: action.encounters
+        })
+    }
 
     return state;
 }

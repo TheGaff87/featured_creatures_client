@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 export function ZooDropdown(props) {
     const zoo = props.zoo.map((zoos, index) => (
         <li key={index} value={zoos}>
-            <Link to="/zoo">{zoos}</Link>
+            <Link to={`/${zoos}`}>{zoos}</Link>
         </li>
     ));
 
