@@ -35,14 +35,12 @@ export const getZoosSuccess = zoos => ({
 });
 
 export const getEncounters = (term) => dispatch => {
-    console.log(`dispatched with ${term}`)
     fetch(`${API_BASE_URL}/animal/${term}`).then(res => {
         if (!res.ok) {
             return Promise.reject(res.statusText);
         }
         return res.json();
     }).then(encounters => {
-        console.log(`returned json is ${encounters}`);
         dispatch(getEncountersSuccess(encounters));
     });
 };

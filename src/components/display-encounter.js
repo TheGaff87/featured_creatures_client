@@ -8,7 +8,6 @@ import DeleteEncounterButton from './delete-encounter-button';
 import './display-encounter.css';
 
 export function DisplayEncounter(props) {
-    console.log(props);
     const encounters = props.encounters.map((encounter, index) => (
         <section className="display-encounter" key={index}>
             <img src={encounter.encounterImage} alt={encounter.encounterName} />
@@ -35,7 +34,8 @@ export function DisplayEncounter(props) {
 }
 
 const mapStateToProps = state => ({
-    encounters: state.encounters
+    encounters: state.encounters,
+    animal: state.encounters[0].animal
   });
   
   export default connect(mapStateToProps)(DisplayEncounter);

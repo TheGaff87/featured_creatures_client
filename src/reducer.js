@@ -11,7 +11,19 @@ const initialState = {
     animal: [],
     zoo: [],
 
-    encounters: []
+    encounters: [
+        {
+            animal: "Kangaroo",
+            encounterImage: "images/kangaroo-feeding.jpeg",
+            encounterName: "Kangaroo Feeding",
+            zooName: "Featherdale Wildlife Park",
+            zooWebsite: "https://www.featherdale.com.au/",
+            zooLocation: "Sydney, Australia",
+            encounterCost: "Free",
+            encounterSchedule: "Everyday",
+            encounterDescription: "Visitors can buy kangaroo feed for $2 and hand feed the kangaroos inside their enclosure."
+        }
+    ]
 
 };
 
