@@ -25,7 +25,6 @@ export function DisplayEncounter(props) {
 
     return (
         <div>
-        <h3>{props.animal} Encounters</h3>
         <div>
             {encounters}
         </div>
@@ -34,8 +33,7 @@ export function DisplayEncounter(props) {
 }
 
 const mapStateToProps = state => ({
-    encounters: state.encounters,
-    animal: state.encounters[0].animal
+    encounters: state.encounters
   });
   
   export default connect(mapStateToProps)(DisplayEncounter);

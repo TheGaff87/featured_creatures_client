@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {getAnimals} from '../actions';
 import {getZoos} from '../actions';
+import {getAllEncounters} from '../actions';
 
 import './landing-page.css';
 import {Link} from 'react-router-dom';
@@ -15,6 +16,7 @@ export class LandingPage extends React.Component {
     onClick(e) {
         this.props.dispatch(getAnimals());
         this.props.dispatch(getZoos());
+        this.props.dispatch(getAllEncounters());
     }
 
     render() {

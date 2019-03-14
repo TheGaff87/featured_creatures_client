@@ -36,8 +36,7 @@ export class Main extends React.Component {
                 <ZooDropdown />
             </section>
             <section className="results">
-                <Route exact path="/encounter" component={DisplayEncounter} />
-                <Route exact path="/zoo" component={DisplayZoo} />
+                <DisplayEncounter />
             </section>
         </div>
         </Router>
@@ -46,7 +45,7 @@ export class Main extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    encounter: state.encounters.animal
+    
   });
   
   export default connect(mapStateToProps)(Main);

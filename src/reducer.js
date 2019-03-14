@@ -11,19 +11,7 @@ const initialState = {
     animal: [],
     zoo: [],
 
-    encounters: [
-        {
-            animal: "Kangaroo",
-            encounterImage: "images/kangaroo-feeding.jpeg",
-            encounterName: "Kangaroo Feeding",
-            zooName: "Featherdale Wildlife Park",
-            zooWebsite: "https://www.featherdale.com.au/",
-            zooLocation: "Sydney, Australia",
-            encounterCost: "Free",
-            encounterSchedule: "Everyday",
-            encounterDescription: "Visitors can buy kangaroo feed for $2 and hand feed the kangaroos inside their enclosure."
-        }
-    ]
+    encounters: []
 
 };
 
@@ -38,9 +26,19 @@ export default (state = initialState, action) => {
             zoo: action.zoos
         })
     }
-    if (action.type === actions.GET_ENCOUNTERS_SUCCESS) {
+    if (action.type === actions.GET_ALL_ENCOUNTERS_SUCCESS) {
         return Object.assign({}, state, {
             encounters: action.encounters
+        })
+    }
+    if (action.type === actions.GET_ENCOUNTERS_BY_ANIMAL_SUCCESS) {
+        return Object.assign({}, state, {
+            encounters: action.animalsEncounters
+        })
+    }
+    if (action.type === actions.GET_ENCOUNTERS_BY_ZOO_SUCCESS) {
+        return Object.assign({}, state, {
+           encounters: action.zoosEncounters
         })
     }
 

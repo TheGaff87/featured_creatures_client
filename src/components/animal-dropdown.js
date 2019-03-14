@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import {getEncounters} from '../actions';
+import {getEncountersByAnimal} from '../actions';
 
 export class AnimalDropdown extends React.Component {
     constructor(props) {
@@ -11,13 +11,13 @@ export class AnimalDropdown extends React.Component {
     }
 
     onClick(term) {
-        this.props.dispatch(getEncounters(term));
+        this.props.dispatch(getEncountersByAnimal(term));
     }
 
     render() {
         const animal = this.props.animal.map((animals, index) => (
             <li key={index} value={animals}> 
-                <Link to="/encounter" onClick={e => this.onClick(e.target.textContent)}>{animals}</Link>
+                <Link to=" " onClick={e => this.onClick(e.target.textContent)}>{animals}</Link>
             </li>
         ));
 
@@ -34,8 +34,7 @@ export class AnimalDropdown extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    animal: state.animal,
-    encounter: state.encounters.animal
+    animal: state.animal
   });
   
   export default connect(mapStateToProps)(AnimalDropdown);
