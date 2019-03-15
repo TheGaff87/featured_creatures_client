@@ -4,7 +4,11 @@
 }
 
 .signin-select {
-    margin-right: 1em;
+    margin-bottom: 2em;
+}
+
+.signup-button, .signin-button {
+    margin-top: 1em;
 }
 
 ul li {
@@ -16,4 +20,12 @@ ul {
     width: 25%;
     border: 1px black solid;
     padding: 1em;
+}
+
+span.required {
+    font-weight: bold;
+}
+
+.text-input {
+    margin-bottom: 1em;
 }

@@ -42,7 +42,7 @@ export const getAllEncounters = () => dispatch => {
         return res.json();
     }).then(encounters => {
         dispatch(getAllEncountersSuccess(encounters));
-        console.log(`encounters length is ${encounters.length}`)
+        
     });
 };
 
@@ -85,3 +85,57 @@ export const getEncountersByZooSuccess = zoosEncounters => ({
     type: GET_ENCOUNTERS_BY_ZOO_SUCCESS,
     zoosEncounters
 });
+
+export const SHOW_SIGNIN_FORM = 'SHOW_SIGNIN_FORM';
+export const showSigninForm = (change) => ({
+    type: SHOW_SIGNIN_FORM,
+    change
+});
+
+export const signup = user => {
+    fetch(`${API_BASE_URL}/users`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    })
+    .then(res => {
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    })
+};
+
+export const login = user => dispatch => {
+    const username = user.username;
+    fetch(`${API_BASE_URL}/auth/login`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    })
+    .then(res => {
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    }).then(authToken => {
+        dispatch(loggedInSuccess(authToken));
+        dispatch(updateCurrentUser(username))
+    });
+};
+
+export const LOGGED_IN_SUCCESS = 'LOGGED_IN_SUCCESS';
+export const loggedInSuccess = (authToken) => ({
+    type: LOGGED_IN_SUCCESS,
+    authToken
+});
+
+export const UPDATE_CURRENT_USER = 'UPDATE_CURRENT_USER';
+export const updateCurrentUser = (username) => ({
+    type: UPDATE_CURRENT_USER,
+    username
+})

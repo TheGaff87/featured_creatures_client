@@ -1,10 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {showSigninForm} from '../actions';
 
 export function SigninButton(props) {
+
+    function onClick(e) {
+        if (props.showSigninForm) {
+            props.dispatch(showSigninForm(false));
+        }else{
+            props.dispatch(showSigninForm(true));
+        }
+    }
+
     if (!props.isLoggedIn) {
     return (
-    <button type="button" className="signin-select">Signin/Signup</button>
+    <button type="button" className="signin-select" onClick={e => onClick(e)}>Signin/Signup</button>
     )
     } else {
         return null
@@ -12,7 +22,8 @@ export function SigninButton(props) {
 }
 
 const mapStateToProps = state => ({
-    isLoggedIn: state.isLoggedIn
+    isLoggedIn: state.isLoggedIn,
+    showSigninForm: state.showSigninForm
   });
   
   export default connect(mapStateToProps)(SigninButton);

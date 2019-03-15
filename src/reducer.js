@@ -2,7 +2,8 @@ import * as actions from './actions';
 
 const initialState = {
     isLoggedIn: false,
-    currentUser: "",
+    currentUser: '',
+    authToken: '',
 
     showSigninForm: false,
     showAddEncounter: false,
@@ -39,6 +40,23 @@ export default (state = initialState, action) => {
     if (action.type === actions.GET_ENCOUNTERS_BY_ZOO_SUCCESS) {
         return Object.assign({}, state, {
            encounters: action.zoosEncounters
+        })
+    }
+    if (action.type === actions.SHOW_SIGNIN_FORM) {
+        return Object.assign({}, state, {
+            showSigninForm: action.change
+        })
+    }
+    if (action.type === actions.LOGGED_IN_SUCCESS) {
+        return Object.assign({}, state, {
+            authToken: action.authToken,
+            isLoggedIn: true,
+            showSigninForm: false
+        })
+    }
+    if (action.type === actions.UPDATE_CURRENT_USER) {
+        return Object.assign({}, state, {
+            currentUser: action.username
         })
     }
 

@@ -1,11 +1,16 @@
 import React from 'react';
 
-export default function TextInput(props) {
+export default class TextInput extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
     return (
         <div className='text-input'>
             <label>
-                {props.field}: <input type='text' size='50' className={props.className} placeholder={props.placeholder} />
+                <span className='required'>{this.props.field}</span>: <input type='text' size='50' className={this.props.className} placeholder={this.props.placeholder} />
             </label>
         </div>
     )
+}
 }
