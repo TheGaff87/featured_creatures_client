@@ -17,7 +17,7 @@ export class AnimalDropdown extends React.Component {
     render() {
         const animal = this.props.animal.map((animals, index) => (
             <li key={index} value={animals}> 
-                <Link to=" " onClick={e => this.onClick(e.target.textContent)}>{animals}</Link>
+                <Link to={`/main/${animals}`} onClick={e => this.onClick(e.target.textContent)}>{animals}</Link>
             </li>
         ));
 
