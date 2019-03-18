@@ -8,6 +8,7 @@ import DeleteEncounterButton from './delete-encounter-button';
 import './display-encounter.css';
 
 export function DisplayEncounter(props) {
+
     const encounters = props.encounters.map((encounter, index) => (
         <section className="display-encounter" key={index}>
             <img src={encounter.encounterImage} alt={encounter.encounterName} />
@@ -17,9 +18,11 @@ export function DisplayEncounter(props) {
             <p><span>Encounter Cost</span>: {encounter.encounterCost}</p>
             <p><span>Encounter Schedule</span>: {encounter.encounterSchedule}</p>
             <p><span>Encounter Description</span>: {encounter.encounterDescription}</p>
-            <EditEncounterButton />
-            <EditEncounter />
-            <DeleteEncounterButton />
+            {props.currentUser === encounter.addedBy ? 
+            <div>
+                <EditEncounterButton />
+                <EditEncounter />
+                <DeleteEncounterButton /></div> : null }
         </section>
     ));
 
@@ -33,7 +36,8 @@ export function DisplayEncounter(props) {
 }
 
 const mapStateToProps = state => ({
-    encounters: state.encounters
+    encounters: state.encounters,
+    currentUser: state.currentUser
   });
   
   export default connect(mapStateToProps)(DisplayEncounter);

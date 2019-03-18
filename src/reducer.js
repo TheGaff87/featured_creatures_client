@@ -59,6 +59,11 @@ export default (state = initialState, action) => {
             currentUser: action.username
         })
     }
+    if (action.type === actions.SHOW_ADD_ENCOUNTER_FORM) {
+        return Object.assign({}, state, {
+            showAddEncounter: action.change
+        })
+    }
 
     return state;
 }

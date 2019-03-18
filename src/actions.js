@@ -139,3 +139,9 @@ export const updateCurrentUser = (username) => ({
     type: UPDATE_CURRENT_USER,
     username
 })
+
+export const SHOW_ADD_ENCOUNTER_FORM = 'SHOW_ADD_ENCOUNTER_FORM';
+export const showAddEncounterForm = (change) => ({
+    type: SHOW_ADD_ENCOUNTER_FORM,
+    change
+});
