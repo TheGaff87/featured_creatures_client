@@ -92,7 +92,8 @@ export const showSigninForm = (change) => ({
     change
 });
 
-export const signup = user => {
+export const signup = user =>dispatch => {
+    const userData = user;
     fetch(`${API_BASE_URL}/users`, {
         method: 'POST',
         headers: {
@@ -105,6 +106,8 @@ export const signup = user => {
             return Promise.reject(res.statusText);
         }
         return res.json();
+    }).then(() => {
+        dispatch(login(userData))
     })
 };
 
@@ -145,3 +148,32 @@ export const showAddEncounterForm = (change) => ({
     type: SHOW_ADD_ENCOUNTER_FORM,
     change
 });
+
+export const addNewEncounter = (encounter, token) => dispatch => {
+    const authToken = token.authToken;
+    console.log(authToken);
+    fetch(`${API_BASE_URL}/encounters`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+            Authorization: `Bearer ${authToken}`
+        },
+        body: JSON.stringify(encounter)
+    })
+    .then(res => {
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    }).then(() => {
+        dispatch(getAnimals());
+        dispatch(getZoos());
+        dispatch(getAllEncounters());
+        dispatch(addNewEncounterSuccess())
+    });
+};
+
+export const ADD_NEW_ENCOUNTER_SUCCESS = 'ADD_NEW_ENCOUNTER_SUCCESS';
+export const addNewEncounterSuccess = () => ({
+    type: ADD_NEW_ENCOUNTER_SUCCESS
+})

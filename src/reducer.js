@@ -64,6 +64,11 @@ export default (state = initialState, action) => {
             showAddEncounter: action.change
         })
     }
+    if (action.type === actions.ADD_NEW_ENCOUNTER_SUCCESS) {
+        return Object.assign({}, state, {
+            showAddEncounter: false
+        })
+    }
 
     return state;
 }

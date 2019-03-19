@@ -1,10 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {addNewEncounter} from '../actions';
+
 import './add-encounter.css'
 
-export function AddEncounter(props) {
+export class AddEncounter extends React.Component {
+    constructor(props) {
+      super(props);
+      this.onClick = this.onClick.bind(this);
+    }
 
-    function onClick(e) {
+    onClick(e) {
         e.preventDefault();
         const encounter = {
             animal: this.animal.value,
@@ -17,14 +23,15 @@ export function AddEncounter(props) {
             encounterCost: this.encounterCost.value,
             encounterSchedule: this.encounterSchedule.value,
             encounterDescription: this.encounterDescription.value,
-            addedBy: props.currentUser
+            addedBy: this.props.currentUser
             };
-        this.props.dispatch(addNewEncounter(encounter));
+        const token = this.props.authToken;
+        this.props.dispatch(addNewEncounter(encounter, token));
         document.getElementsByClassName('add-encounter-form')[0].reset();
     }
 
-
-    if (props.showAddEncounter) {
+    render () {
+    if (this.props.showAddEncounter) {
     return (
         <section className='add-encounter'>
             <form className='add-encounter-form'>
@@ -64,11 +71,11 @@ export function AddEncounter(props) {
                 <input type='text' className='encounter-schedule' placeholder= 'Enter the encounter schedule' size='50'
                 ref={input => (this.encounterSchedule = input)} />
             </label>
-            <label><span className='required'>Encounter Cost(required)</span>
-                <input type='textarea' className='encounter-description' placeholder='Enter short description of encounter. Do not include personal review of the experience.' size='50'
+            <label><span className='required'>Encounter Description (required)</span>
+                <input type='textarea' className='encounter-description' placeholder='Enter short description of encounter. Do not include personal review of the experience.' rows="4" cols="40"
                 ref={input => (this.encounterDescription = input)} />
             </label>
-            <button type="submit" className="submit-encounter" onClick={e => onClick(e)}>Submit Encounter</button>
+            <button type="submit" className="submit-encounter" onClick={this.onClick}>Submit Encounter</button>
             </form>
         </section>
     )
@@ -76,10 +83,13 @@ export function AddEncounter(props) {
         return null
     }
 }
+}
+
 
 const mapStateToProps = state => ({
     showAddEncounter: state.showAddEncounter,
-    addedBy: state.currentUser
+    addedBy: state.currentUser,
+    authToken: state.authToken
   });
   
   export default connect(mapStateToProps)(AddEncounter);

@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import TextInput from './text-input';
-
 import {login} from '../actions';
 import {signup} from '../actions';
 

@@ -24,6 +24,10 @@ export class LandingPage extends React.Component {
         <section className="landing-page">
             <h2>Do you love animals? Featured Creatures makes it easy to find behind-the-scenes, up close and personal encounters with your favorite critters. Anyone can find encounters by animal or zoo. If you signup/signin, you can add encounters and edit or delete encounters you add. Click the photo to get started.</h2>
             <Link to="/main"><input type="image" className="start-button" alt="koala-encounter" src={require('../koala-encounter.jpg')} onClick={this.onClick}></input></Link>
+            <br />
+            Feel free to use the demo account below to test out the site.
+            <p className='demo'>Username: user1
+            Password: pass1</p>
             
         </section>
         )
