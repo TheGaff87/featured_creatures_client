@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-
-import {login} from '../actions';
+import {signup} from '../actions';
 
 import './signin.css'
 
-export class Signin extends React.Component {
+export class Signup extends React.Component {
     constructor(props) {
       super(props);
       this.onSubmit = this.onSubmit.bind(this);
@@ -18,24 +17,24 @@ export class Signin extends React.Component {
             username: this.username.value,
             password: this.password.value
             };
-        this.props.dispatch(login(user));
+        this.props.dispatch(signup(user));
     }
 
 
     render() {
-    if (this.props.showSigninForm) {
+    if (this.props.showSignupForm) {
     return (
-        <section className='signin'>
-            <form className='signin-form' onSubmit={this.onSubmit}>
+        <section className='signup'>
+            <form className='signup-form' onSubmit={this.onSubmit}>
             <label><span className='required'>Username (required)</span>
-                <input type='text' className='username2' placeholder= 'Enter your username' size='50'
+                <input type='text' className='username1' placeholder= 'Enter your username' size='50'
                 ref={input => (this.username = input)} required />
             </label>
             <label><span className='required'>Password (required)</span>
-                <input type='password2' className='password' placeholder= 'Password must be at least 5 characters' size='50'
+                <input type='password1' className='password' placeholder= 'Password must be at least 5 characters' size='50'
                 ref={input => (this.password = input)} required />
             </label>
-            <button type="submit" className="signin-button">Signin</button>
+            <button type="submit" className="signup-button">Sign up</button>
             </form>
         </section>
     )
@@ -46,7 +45,7 @@ export class Signin extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    showSigninForm: state.showSigninForm
+    showSignupForm: state.showSignupForm
   });
   
-  export default connect(mapStateToProps)(Signin);
+  export default connect(mapStateToProps)(Signup);

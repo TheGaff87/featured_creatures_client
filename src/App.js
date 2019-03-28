@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import store from './store';
 import LandingPage from './components/landing-page';
@@ -16,8 +17,8 @@ class App extends Component {
         <h1>Featured Creatures</h1>
       </header>
       <main>
-        <Route exact path="/" component={LandingPage} />
-        <Route exact path="/main" component={Main} />
+        <Route exact path='/' component={LandingPage} />
+        <Route path='/main' component={Main} />
       </main>
       </div>
       </Router>
@@ -25,4 +26,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;

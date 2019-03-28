@@ -5,14 +5,35 @@ const initialState = {
     currentUser: '',
     authToken: '',
 
+    showSignupForm: false,
     showSigninForm: false,
+
     showAddEncounter: false,
+
     showEditEncounter: false,
+    currentEditForm: 0,
+    editEncounterFields: false,
+
+    showDeleteEncounter: false,
+    currentDeleteForm: 0,
 
     animal: [],
     zoo: [],
 
-    encounters: []
+    encounters: [
+        {
+            animal : "Kangaroo",
+            encounterImage: "https://featured-creatures-api.herokuapp.com/images/kangaroo-feeding.jpeg",
+            encounterName : "Kangaroo Feeding",
+            zooName : "Featherdale Wildlife Park",
+            zooWebsite : "https://www.featherdale.com.au/",
+            zooLocation: "Sydney, Australia",
+            encounterCost : "Free",
+            encounterSchedule : "Everyday",
+            encounterDescription : "Visitors can buy kangaroo feed for $2 and hand feed the kangaroos inside their enclosure.",
+            addedBy : "user1"
+        }
+    ]
 
 };
 
@@ -42,6 +63,11 @@ export default (state = initialState, action) => {
            encounters: action.zoosEncounters
         })
     }
+    if (action.type === actions.SHOW_SIGNUP_FORM) {
+        return Object.assign({}, state, {
+            showSignUpForm: action.change
+        })
+    }
     if (action.type === actions.SHOW_SIGNIN_FORM) {
         return Object.assign({}, state, {
             showSigninForm: action.change
@@ -69,6 +95,37 @@ export default (state = initialState, action) => {
             showAddEncounter: false
         })
     }
+    if (action.type === actions.SHOW_EDIT_ENCOUNTER_FORM) {
+        return Object.assign({}, state, {
+            showEditEncounter: action.change,
+            currentEditForm: action.currentForm
+        })
+    }
+    if (action.type === actions.EDIT_ENCOUNTER_SUCCESS) {
+        return Object.assign({}, state, {
+            showEditEncounter: false,
+            currentEditForm: 0,
+            editEncounterFields: false
+        })
+    }
+    if (action.type === actions.EDIT_ENCOUNTER_FIELDS) {
+        return Object.assign({}, state, {
+            editEncounterFields: true,
+        })
+    }
+    if (action.type === actions.SHOW_DELETE_ENCOUNTER_FORM) {
+        return Object.assign({}, state, {
+            showDeleteEncounter: action.change,
+            currentDeleteForm: action.currentForm
+        })
+    }
+    if (action.type === actions.DELETE_ENCOUNTER_SUCCESS) {
+        return Object.assign({}, state, {
+            showDeleteEncounter: false,
+            currentDeleteForm: 0
+        })
+    }
+
 
     return state;
 }

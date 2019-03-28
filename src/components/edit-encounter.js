@@ -1,18 +1,49 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {editEncounter} from '../actions';
+import {editEncounterFields} from '../actions';
 
-import TextInput from './text-input';
-import TextareaInput from './textarea-input';
+export class EditEncounter extends React.Component {
+    constructor(props) {
+      super(props);
+      this.onClick = this.onClick.bind(this);
+    }
 
-export  function EditEncounter(props) {
-    if (props.showEditEncounter) {
+    onClick(e) {
+        e.preventDefault();
+        const id = this.props.encounterId;
+        if (this.encounterCost.value !== '' ||this.encounterSchedule.value !== '' || this.encounterDescription.value != '') {
+            const encounter = {
+                encounterCost: this.encounterCost.value,
+                encounterSchedule: this.encounterSchedule.value,
+                encounterDescription: this.encounterDescription.value
+                }
+            const token = this.props.authToken;
+            this.props.dispatch(editEncounter(encounter, token, id));
+            document.getElementsByClassName('edit-encounter-form')[0].reset();
+        }else{
+            this.props.dispatch(editEncounterFields());
+        } 
+    }
+
+    render () {
+    if (this.props.showEditEncounter && this.props.currentEditForm===this.props.id) {
     return (
         <section className='edit-encounter-section'>
             <form action='/api/users/' method='post' className='edit-encounter-form'>
-            <TextInput field='Encounter Cost' className='encounter-cost-edit' placeholder='Enter updated encounter cost' />
-            <TextInput field='Encounter Schedule' className='encounter-schedule-edit' placeholder='Enter updated encounter schedule' />
-            <TextareaInput field='Encounter Description' className='encounter-description-edit' placeholder='Enter updated encounter description. Do not enter personal review of encounter.' />
-            <button type="submit" className="edit-submit">Submit encounter changes</button>
+            <label><span className='required'>Encounter Cost(required)</span>
+                <input type='text' className='encounter-cost' placeholder= 'Enter updated encounter cost' size='50'
+                ref={input => (this.encounterCost = input)} />
+            </label>
+            <label><span className='required'>Encounter Schedule(required)</span>
+                <input type='text' className='encounter-schedule' placeholder= 'Enter updated encounter schedule' size='50'
+                ref={input => (this.encounterSchedule = input)} />
+            </label>
+            <label><span className='required'>Encounter Description (required)</span>
+                <textarea className='encounter-description' placeholder='Enter updated encounter description. Do not include personal review of the experience.' rows='4' cols='40'
+                ref={input => (this.encounterDescription = input)} />
+            </label>
+            <button type="submit" className="edit-submit" onClick={this.onClick}>Submit encounter changes</button>
             </form>
         </section>
     )
@@ -20,9 +51,12 @@ export  function EditEncounter(props) {
         return null
     }
 }
+}
 
 const mapStateToProps = state => ({
-    showEditEncounter: state.showEditEncounter
+    showEditEncounter: state.showEditEncounter,
+    authToken: state.authToken,
+    currentEditForm: state.currentEditForm
   });
   
   export default connect(mapStateToProps)(EditEncounter);

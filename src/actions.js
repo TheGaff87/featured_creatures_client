@@ -59,6 +59,7 @@ export const getEncountersByAnimal = (term) => dispatch => {
         }
         return res.json();
     }).then(animalsEncounters => {
+        console.log(animalsEncounters)
         dispatch(getEncountersByAnimalSuccess(animalsEncounters));
     });
 };
@@ -84,6 +85,12 @@ export const GET_ENCOUNTERS_BY_ZOO_SUCCESS = 'GET_ENCOUNTERS_BY_ZOO_SUCCESS';
 export const getEncountersByZooSuccess = zoosEncounters => ({
     type: GET_ENCOUNTERS_BY_ZOO_SUCCESS,
     zoosEncounters
+});
+
+export const SHOW_SIGNUP_FORM = 'SHOW_SIGNUP_FORM';
+export const showSignupForm = (change) => ({
+    type: SHOW_SIGNUP_FORM,
+    change
 });
 
 export const SHOW_SIGNIN_FORM = 'SHOW_SIGNIN_FORM';
@@ -151,7 +158,6 @@ export const showAddEncounterForm = (change) => ({
 
 export const addNewEncounter = (encounter, token) => dispatch => {
     const authToken = token.authToken;
-    console.log(authToken);
     fetch(`${API_BASE_URL}/encounters`, {
         method: 'POST',
         headers: {
@@ -176,4 +182,66 @@ export const addNewEncounter = (encounter, token) => dispatch => {
 export const ADD_NEW_ENCOUNTER_SUCCESS = 'ADD_NEW_ENCOUNTER_SUCCESS';
 export const addNewEncounterSuccess = () => ({
     type: ADD_NEW_ENCOUNTER_SUCCESS
+})
+
+export const SHOW_EDIT_ENCOUNTER_FORM = 'SHOW_EDIT_ENCOUNTER_FORM';
+export const showEditEncounterForm = (change, currentForm) => ({
+    type: SHOW_EDIT_ENCOUNTER_FORM,
+    change,
+    currentForm
+});
+
+export const editEncounter = (encounter, token, id) => dispatch => {
+    const authToken = token.authToken;
+    fetch(`${API_BASE_URL}/encounters/${id}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+            Authorization: `Bearer ${authToken}`
+        },
+        body: JSON.stringify(encounter)
+    })
+    .then(() => {
+        dispatch(getAllEncounters());
+        dispatch(editEncounterSuccess())
+    });
+};
+
+export const EDIT_ENCOUNTER_SUCCESS = 'EDIT_ENCOUNTER_SUCCESS';
+export const editEncounterSuccess = () => ({
+    type: EDIT_ENCOUNTER_SUCCESS
+})
+
+export const EDIT_ENCOUNTER_FIELDS = 'EDIT_ENCOUNTER_FIELDS';
+export const editEncounterFields = () => ({
+    type: EDIT_ENCOUNTER_FIELDS
+})
+
+export const SHOW_DELETE_ENCOUNTER_FORM = 'SHOW_DELETE_ENCOUNTER_FORM';
+export const showDeleteEncounterForm = (change, currentForm) => ({
+    type: SHOW_DELETE_ENCOUNTER_FORM,
+    change,
+    currentForm
+});
+
+export const deleteEncounter = (token, id) => dispatch => {
+    const authToken = token.authToken;
+    fetch(`${API_BASE_URL}/encounters/${id}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+    .then(() => {
+        dispatch(getAnimals());
+        dispatch(getZoos());
+        dispatch(getAllEncounters());
+        dispatch(deleteEncounterSuccess())
+    });
+};
+
+export const DELETE_ENCOUNTER_SUCCESS = 'DELETE_ENCOUNTER_SUCCESS';
+export const deleteEncounterSuccess = () => ({
+    type: DELETE_ENCOUNTER_SUCCESS
 })

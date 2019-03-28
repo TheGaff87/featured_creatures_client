@@ -23,7 +23,7 @@ export class AnimalDropdown extends React.Component {
 
     return (
         <div><br />
-            <h3>Animals</h3>
+            <h3 className='animals-header'>Animals</h3>
         <ul name="animal-dropdown" className="animal-dropdown">
             {animal}
         </ul>

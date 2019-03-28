@@ -29,3 +29,11 @@ span.required {
 .text-input {
     margin-bottom: 1em;
 }
+
+form {
+    clear: both;
+}
+
+.animals-header {
+    clear: both;
+}

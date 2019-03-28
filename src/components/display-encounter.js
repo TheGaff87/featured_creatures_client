@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import EditEncounterButton from './edit-encounter-button';
+import EditEncounterFields from './edit-encounter-fields';
 import EditEncounter from './edit-encounter';
 import DeleteEncounterButton from './delete-encounter-button';
 
@@ -10,7 +11,7 @@ import './display-encounter.css';
 export function DisplayEncounter(props) {
 
     const encounters = props.encounters.map((encounter, index) => (
-        <section className="display-encounter" key={index}>
+        <section className="display-encounter" key={index} id={index}>
             <img src={encounter.encounterImage} alt={encounter.encounterName} />
             <p><span>Encounter Name</span>: <a href={encounter.encounterWebsite} target='_blank'/>{encounter.encounterName}</p>
             <p><span>Zoo Name</span>: <a href={encounter.zooWebsite} target='_blank'>{encounter.zooName} </a></p>
@@ -20,9 +21,10 @@ export function DisplayEncounter(props) {
             <p><span>Encounter Description</span>: {encounter.encounterDescription}</p>
             {props.currentUser === encounter.addedBy ? 
             <div>
-                <EditEncounterButton />
-                <EditEncounter />
-                <DeleteEncounterButton /></div> : null }
+                <EditEncounterButton id={index} />
+                <EditEncounterFields />
+                <EditEncounter id={index} encounterId={encounter._id} />
+                <DeleteEncounterButton id={index} /></div> : null }
         </section>
     ));
 
