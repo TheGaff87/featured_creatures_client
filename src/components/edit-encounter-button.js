@@ -15,7 +15,7 @@ export function EditEncounterButton(props) {
     }
 
     return (
-    <button type="button" className="add-encounter-button" onClick={e => onClick(e)}>Edit this encounter</button>
+    <button type="button" className="edit-encounter-button" onClick={e => onClick(e)}>Edit this encounter</button>
     )
 }   
 

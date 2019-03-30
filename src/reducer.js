@@ -9,6 +9,8 @@ const initialState = {
     showSigninForm: false,
 
     showAddEncounter: false,
+    showAddEncounterCheck: false,
+    verifyAddEncounterCheck: true,
 
     showEditEncounter: false,
     currentEditForm: 0,
@@ -20,20 +22,7 @@ const initialState = {
     animal: [],
     zoo: [],
 
-    encounters: [
-        {
-            animal : "Kangaroo",
-            encounterImage: "https://featured-creatures-api.herokuapp.com/images/kangaroo-feeding.jpeg",
-            encounterName : "Kangaroo Feeding",
-            zooName : "Featherdale Wildlife Park",
-            zooWebsite : "https://www.featherdale.com.au/",
-            zooLocation: "Sydney, Australia",
-            encounterCost : "Free",
-            encounterSchedule : "Everyday",
-            encounterDescription : "Visitors can buy kangaroo feed for $2 and hand feed the kangaroos inside their enclosure.",
-            addedBy : "user1"
-        }
-    ]
+    encounters: []
 
 };
 
@@ -65,7 +54,7 @@ export default (state = initialState, action) => {
     }
     if (action.type === actions.SHOW_SIGNUP_FORM) {
         return Object.assign({}, state, {
-            showSignUpForm: action.change
+            showSignupForm: action.change
         })
     }
     if (action.type === actions.SHOW_SIGNIN_FORM) {
@@ -77,7 +66,8 @@ export default (state = initialState, action) => {
         return Object.assign({}, state, {
             authToken: action.authToken,
             isLoggedIn: true,
-            showSigninForm: false
+            showSigninForm: false,
+            showSignupForm: false
         })
     }
     if (action.type === actions.UPDATE_CURRENT_USER) {
@@ -90,9 +80,21 @@ export default (state = initialState, action) => {
             showAddEncounter: action.change
         })
     }
+    if (action.type === actions.SHOW_ADD_ENCOUNTER_CHECK) {
+        return Object.assign({}, state, {
+            showAddEncounterCheck: true
+        })
+    }
+    if (action.type === actions.HIDE_ADD_ENCOUNTER_CHECK) {
+        return Object.assign({}, state, {
+            showAddEncounterCheck: false,
+            verifyAddEncounterCheck: false
+        })
+    }
     if (action.type === actions.ADD_NEW_ENCOUNTER_SUCCESS) {
         return Object.assign({}, state, {
-            showAddEncounter: false
+            showAddEncounter: false,
+            verifyAddEncounterCheck: true
         })
     }
     if (action.type === actions.SHOW_EDIT_ENCOUNTER_FORM) {
@@ -125,7 +127,26 @@ export default (state = initialState, action) => {
             currentDeleteForm: 0
         })
     }
+    if (action.type === actions.LOGOUT) {
+        return Object.assign({}, state, {
+            isLoggedIn: false,
+            currentUser: '',
+            authToken: '',
 
+            showSignupForm: false,
+            showSigninForm: false,
+
+            showAddEncounter: false,
+            showAddEncounterCheck: true,
+
+            showEditEncounter: false,
+            currentEditForm: 0,
+            editEncounterFields: false,
+
+            showDeleteEncounter: false,
+            currentDeleteForm: 0,
+        })
+    }
 
     return state;
 }

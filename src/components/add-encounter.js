@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {addNewEncounter} from '../actions';
+import {addNewEncounter, showAddEncounterCheck} from '../actions';
+import AddEncounterCheck from './add-encounter-check';
 
 import './add-encounter.css'
 
@@ -12,6 +13,9 @@ export class AddEncounter extends React.Component {
 
     onSubmit(e) {
         e.preventDefault();
+        if (this.animal.value.slice(-1) === 's' && this.props.verifyAddEncounterCheck) {
+            this.props.dispatch(showAddEncounterCheck());
+        }else{
         const user = this.props.currentUser;
         const encounter = {
             animal: this.animal.value,
@@ -29,6 +33,7 @@ export class AddEncounter extends React.Component {
         const token = this.props.authToken;
         this.props.dispatch(addNewEncounter(encounter, token));
         document.getElementsByClassName('add-encounter-form')[0].reset();
+        }
     }
 
     render () {
@@ -36,8 +41,9 @@ export class AddEncounter extends React.Component {
     return (
         <section className='add-encounter'>
             <form className='add-encounter-form' onSubmit={this.onSubmit}>
+            <AddEncounterCheck />
             <label><span className='required'>Animal (required)</span>
-                <input type='text' className='animal' placeholder= 'Enter animal featured in this encounter' size='50'
+                <input type='text' className='animal' placeholder= 'Enter animal featured in this encounter, using singular form' size='50'
                 ref={input => (this.animal = input)} required />
             </label>
             <label><span className='required'>Encounter Name(required)</span>
@@ -90,7 +96,9 @@ export class AddEncounter extends React.Component {
 const mapStateToProps = state => ({
     showAddEncounter: state.showAddEncounter,
     currentUser: state.currentUser,
-    authToken: state.authToken
+    authToken: state.authToken,
+    showAddEncounterCheck: state.showAddEncounterCheck,
+    verifyAddEncounterCheck: state.verifyAddEncounterCheck
   });
   
   export default connect(mapStateToProps)(AddEncounter);

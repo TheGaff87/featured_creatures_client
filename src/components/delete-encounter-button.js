@@ -15,7 +15,7 @@ export function DeleteEncounterButton(props) {
     }
 
     return (
-    <button type="button" className="add-encounter-button" onClick={e => onClick(e)}>Delete this encounter</button>
+    <button type="button" className="delete-encounter-button" onClick={e => onClick(e)}>Delete this encounter</button>
     )
 }   
 

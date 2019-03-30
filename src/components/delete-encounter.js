@@ -11,6 +11,7 @@ export class DeleteEncounter extends React.Component {
     onClick(e) {
         const token = this.props.authToken;
         const id = this.props.encounterId;
+        console.log(id);
         this.props.dispatch(deleteEncounter(token, id));
     }
 
@@ -19,11 +20,13 @@ export class DeleteEncounter extends React.Component {
             return (
                 <section>
                     <p className='bold'>Are you sure you wish to permanently delete this encounter?</p>
-                        <button type="button" className="delete-encounter-final" onClick={this.onClick}>Permanently delete this Encounter</button>
+                        <button type="button" className="delete-encounter-final" onClick={this.onClick}>Permanently delete this encounter</button>
                 </section>
             )
-        }
+        }else{
+        return null
     }
+}
 }
 
 const mapStateToProps = state => ({
@@ -32,4 +35,4 @@ const mapStateToProps = state => ({
     currentDeleteForm: state.currentDeleteForm
   });
   
-  export default connect(mapStateToProps)(EditEncounter);
+  export default connect(mapStateToProps)(DeleteEncounter);

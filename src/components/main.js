@@ -1,8 +1,6 @@
 import React from 'react';
-import {
-    BrowserRouter as Router,
-    Route} from 'react-router-dom';
 import { connect } from 'react-redux';
+import NotLoggedIn from './not-logged-in';
 import SignupButton from './signup-button';
 import Signup from './signup';
 import SigninButton from './signin-button';
@@ -16,21 +14,16 @@ import DisplayEncounter from './display-encounter';
 import './main.css';
 
 export class Main extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
     return (
-        <Router>
         <div className="main">
-        <h2>You can filter encounters by animal or zoo below. You can also create an account or login to your account. Your adventure awaits!</h2>
+            {!this.props.isLoggedIn ? <NotLoggedIn /> : <LoggedIn />}
             <section className="top-buttons">
                 <SignupButton />
                 <Signup />
                 <SigninButton />
                 <Signin />
-                <LoggedIn />
                 <AddEncounterButton />
                 <AddEncounter />
             </section>
@@ -42,13 +35,12 @@ export class Main extends React.Component {
                 <DisplayEncounter />
             </section>
         </div>
-        </Router>
     );
 }
 }
 
 const mapStateToProps = state => ({
-    
+    isLoggedIn: state.isLoggedIn
   });
   
   export default connect(mapStateToProps)(Main);

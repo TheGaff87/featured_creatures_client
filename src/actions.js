@@ -59,7 +59,6 @@ export const getEncountersByAnimal = (term) => dispatch => {
         }
         return res.json();
     }).then(animalsEncounters => {
-        console.log(animalsEncounters)
         dispatch(getEncountersByAnimalSuccess(animalsEncounters));
     });
 };
@@ -227,7 +226,7 @@ export const showDeleteEncounterForm = (change, currentForm) => ({
 export const deleteEncounter = (token, id) => dispatch => {
     const authToken = token.authToken;
     fetch(`${API_BASE_URL}/encounters/${id}`, {
-        method: 'PUT',
+        method: 'DELETE',
         headers: {
             'content-type': 'application/json',
             Authorization: `Bearer ${authToken}`
@@ -244,4 +243,19 @@ export const deleteEncounter = (token, id) => dispatch => {
 export const DELETE_ENCOUNTER_SUCCESS = 'DELETE_ENCOUNTER_SUCCESS';
 export const deleteEncounterSuccess = () => ({
     type: DELETE_ENCOUNTER_SUCCESS
+})
+
+export const LOGOUT = 'LOGOUT';
+export const logout = () => ({
+    type: LOGOUT
+})
+
+export const SHOW_ADD_ENCOUNTER_CHECK = 'SHOW_ADD_ENCOUNTER_CHECK';
+export const showAddEncounterCheck = () => ({
+    type: SHOW_ADD_ENCOUNTER_CHECK
+})
+
+export const HIDE_ADD_ENCOUNTER_CHECK = 'HIDE_ADD_ENCOUNTER_CHECK';
+export const hideAddEncounterCheck = () => ({
+    type: HIDE_ADD_ENCOUNTER_CHECK
 })
