@@ -12,7 +12,7 @@ export function AddEncounterCheck(props) {
     return (
         <div className='add-encounter-check'>
             <p className='animal-singular'>Did you use the singular form for this animal? If not, please change it.</p>
-            <button type='button' onClick={e => onClick(e)}>Yes, I used the singular!</button>
+            <button type='button' onClick={e => onClick(e)} className='singular-button'>Yes, I used the singular!</button>
         </div>
     )
     }else{

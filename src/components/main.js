@@ -14,6 +14,14 @@ import DisplayEncounter from './display-encounter';
 import './main.css';
 
 export class Main extends React.Component {
+    constructor(props) {
+        super(props);
+        this.onClick = this.onClick.bind(this);
+      }
+
+      onClick(e) {
+          this.props.dispatch(getAllEncounters());
+      }
 
     render() {
     return (
@@ -28,6 +36,7 @@ export class Main extends React.Component {
                 <AddEncounter />
             </section>
             <section className="dropdowns">
+                <button type='button' className='all-encounters' onClick={this.onClick}>Show All Encounters</button>
                 <AnimalDropdown />
                 <ZooDropdown />
             </section>

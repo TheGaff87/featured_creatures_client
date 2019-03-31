@@ -148,6 +148,8 @@ export default (state = initialState, action) => {
 
             showDeleteEncounter: false,
             currentDeleteForm: 0,
+
+            encounterType: 'All Animal'
         })
     }
 

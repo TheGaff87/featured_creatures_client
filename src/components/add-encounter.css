@@ -21,3 +21,15 @@
     border-radius: 15px;
     font-size: 1.25em;
 }
+
+.animal-singular {
+    font-weight: bold;
+}
+
+.singular-button {
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    border-radius: 15px;
+    font-size: 1.25em;
+}
