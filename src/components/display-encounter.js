@@ -33,6 +33,7 @@ export function DisplayEncounter(props) {
     return (
         <div>
         <div>
+            <h2 className='encounters-header'>{props.encounterType} Encounters</h2>
             {encounters}
         </div>
         </div>
@@ -41,7 +42,8 @@ export function DisplayEncounter(props) {
 
 const mapStateToProps = state => ({
     encounters: state.encounters,
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    encounterType: state.encounterType
   });
   
   export default connect(mapStateToProps)(DisplayEncounter);

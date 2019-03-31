@@ -12,8 +12,8 @@ export function LoggedIn(props) {
     if (props.isLoggedIn) {
     return (
         <div className='loggedin-only'>
-            <h2 className='welcome-user'>Welcome, {props.currentUser}. In addition to filtering encounters, you can now add new encounters and edit or delete encounters you have added. Enjoy!</h2>
-            <Link to='/main'><button type='submit' onClick={e => onClick(e)}>Logout</button></Link>
+            <p className='welcome-user'><span className='name-welcome'>Welcome, {props.currentUser}</span>. In addition to filtering encounters, you can now add new encounters and edit or delete encounters you have added. Enjoy!</p>
+            <Link to='/main'><button type='submit' className='logout-button' onClick={e => onClick(e)}>Logout</button></Link>
         </div>
     )
     } else {

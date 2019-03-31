@@ -1,39 +1,35 @@
-.signin-select,
-.add-encounter-button {
-    float: left;
-}
-
-.signin-select {
-    margin-bottom: 2em;
-}
-
-.signup-button, .signin-button {
-    margin-top: 1em;
-}
-
-ul li {
-    text-decoration: none;
-}
-
-ul {
-    list-style: none;
-    width: 30%;
-    border: 1px black solid;
-    padding: 1em;
-}
-
 span.required {
     font-weight: bold;
+    margin-right: .5em;
+    font-size: 1.25em;
 }
 
-.text-input {
+input {
+    height: 2em;;
+}
+
+label {
     margin-bottom: 1em;
 }
 
-form {
-    clear: both;
+.logout-button {
+    border: 1px solid #fb16ff;
+    color: #fb16ff;
+    background-color: #ffffff;
+    border-radius: 15px;
+    font-size: 1.25em;
+    margin-bottom: 1em;
 }
 
-.animals-header {
-    clear: both;
+@media only screen and (min-width: 710px) {
+
+    .welcome-user, .not-logged-in {
+        font-size: 1.5em;
+    }
+
+    .name-welcome {
+        font-weight: bold;
+        color: #8b16ff;
+    }
 }
+

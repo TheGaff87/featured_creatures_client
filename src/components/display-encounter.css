@@ -1,15 +1,20 @@
+a {
+    text-decoration: none;
+}
+
 .display-encounter img {
-    width: 300px;
-    height: 200px;
+    width: 150px;
+    height: 113px;
     display: block;
     margin: 0 auto;
     margin-top: 1em;
 }
 
 .display-encounter {
-    border: 1px black solid;
-    width: 50%;
-    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: .25em;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .display-encounter p {
@@ -18,4 +23,66 @@
 
 .display-encounter span {
     font-weight: bold;
+}
+
+.encounters-header {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.edit-encounter-button, .delete-encounter-button {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #fb16ff;
+    color: #fb16ff;
+    background-color: #ffffff;
+    border-radius: 15px;
+    font-size: 1.25em;
+}
+
+.edit-submit {
+    border: 1px solid #fb16ff;
+    color: #ffffff;
+    background-color: #fb16ff;
+    border-radius: 15px;
+    font-size: 1.25em;
+}
+
+.edit-encounter-form, .delete-encounter-form {
+    text-align: center;
+}
+
+.edit-encounter-button {
+    margin-bottom: 1em;
+}
+
+.permanent-delete {
+    font-weight: bold
+}
+
+.delete-encounter-final {
+    border: 1px solid #fb16ff;
+    color: #ffffff;
+    background-color: #fb16ff;
+    border-radius: 15px;
+    font-size: 1.25em;
+    margin: 0 auto;
+    display: block;
+}
+
+
+
+@media only screen and (min-width: 480px) and (max-width: 709px) {
+    .display-encounter img {
+            width: 300px;
+            height: 200px;
+    }
+}
+
+@media only screen and (min-width: 710px) {
+    .display-encounter img {
+        width: 500px;
+        height: 375px;
+    }
 }

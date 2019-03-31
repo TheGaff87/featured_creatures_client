@@ -5,3 +5,19 @@
 .hidden {
     display: none;
 }
+
+.add-encounter-button {
+    border: 1px solid #fb16ff;
+    color: #fb16ff;
+    background-color: #ffffff;
+    border-radius: 15px;
+    font-size: 1.25em;
+}
+
+.submit-encounter {
+    border: 1px solid #fb16ff;
+    background-color: #fb16ff;
+    color: #ffffff;
+    border-radius: 15px;
+    font-size: 1.25em;
+}

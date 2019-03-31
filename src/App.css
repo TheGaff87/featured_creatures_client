@@ -1,13 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f9fd;
+}
+
+.row {
+  max-width: 1200px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+
+/* Clearfix */
+.row::before,
+.row::after {
+display: table;
+content: '';
+}
+
+.row::after {
+clear: both;
+}
+
+.col-12 {
+float: left;
+padding-left: 1.04166666%;
+padding-right: 1.04166666%;
+width: 100%
+}
+
 body {
   margin-left: 2em;
-  width: 75%;
+  width: 80%;
   margin-bottom: 1em;
+  margin: 0 auto;
 }
 
 label {
   display: block;
 }
 
-form {
-  margin-top: 2em;
+h1, h2, h3{
+  font-family: 'Permanent Marker', cursive;
+}
+
+header {
+  margin-top: 5px;
+  width: 100%;
+  text-align: center;
+  border: 5px solid #1616ff;
+  border-radius: 25px;
+}
+
+h1 {
+  color: #8b16ff;
+  font-size: 3em;
+}
+
+h2 {
+  color: #8b16ff;
+  font-size: 2em;
+}
+
+@media only screen and (min-width: 710px) {
+  h1 {
+    font-size: 4em;
+  }
 }

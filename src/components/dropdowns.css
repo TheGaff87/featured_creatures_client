@@ -1,0 +1,43 @@
+ul li a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin-top: 0;
+    padding-left: .75em;
+}
+
+.animals-header {
+    clear: both;
+    margin-top: 0;
+    padding-left: .5em;
+    color: #1616ff;
+    margin-bottom: .5em;
+}
+
+.zoos-header {
+    padding-top: 1em;
+    padding-left: 1em;
+    color: #1616ff;
+    margin-bottom: .5em;
+}
+
+.dropdowns {
+    margin-bottom: 8em;
+}
+
+.dropdowns a {
+    font-size: 1.15em;
+}
+
+@media only screen and (min-width: 710px) {
+
+.animals-div {
+    margin-top: 2em;
+    margin-left: 3em;
+    margin-right: 5em;
+    float: left;
+    width: 45%;
+    }
+}

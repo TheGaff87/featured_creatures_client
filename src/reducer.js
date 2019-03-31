@@ -22,7 +22,8 @@ const initialState = {
     animal: [],
     zoo: [],
 
-    encounters: []
+    encounters: [],
+    encounterType: 'All Animal'
 
 };
 
@@ -44,12 +45,14 @@ export default (state = initialState, action) => {
     }
     if (action.type === actions.GET_ENCOUNTERS_BY_ANIMAL_SUCCESS) {
         return Object.assign({}, state, {
-            encounters: action.animalsEncounters
+            encounters: action.animalsEncounters,
+            encounterType: action.encounterType
         })
     }
     if (action.type === actions.GET_ENCOUNTERS_BY_ZOO_SUCCESS) {
         return Object.assign({}, state, {
-           encounters: action.zoosEncounters
+           encounters: action.zoosEncounters,
+           encounterType: action.encounterType
         })
     }
     if (action.type === actions.SHOW_SIGNUP_FORM) {

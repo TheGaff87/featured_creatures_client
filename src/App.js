@@ -11,11 +11,11 @@ class App extends Component {
     return (
       <Provider store={store}>
       <Router>
-      <div>
-      <header>
+      <div className='row'>
+      <header className='col-12'>
         <h1>Featured Creatures</h1>
       </header>
-      <main>
+      <main className='col-12'>
         <Route exact path='/' component={LandingPage} />
         <Route path='/main' component={Main} />
       </main>

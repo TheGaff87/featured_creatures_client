@@ -53,37 +53,41 @@ export const getAllEncountersSuccess = encounters => ({
 })
 
 export const getEncountersByAnimal = (term) => dispatch => {
+    const encounterType = term;
     fetch(`${API_BASE_URL}/animal/${term}`).then(res => {
         if (!res.ok) {
             return Promise.reject(res.statusText);
         }
         return res.json();
     }).then(animalsEncounters => {
-        dispatch(getEncountersByAnimalSuccess(animalsEncounters));
+        dispatch(getEncountersByAnimalSuccess(animalsEncounters, encounterType));
     });
 };
 
 export const GET_ENCOUNTERS_BY_ANIMAL_SUCCESS = 'GET_ENCOUNTERS_BY_ANIMAL_SUCCESS';
-export const getEncountersByAnimalSuccess = animalsEncounters => ({
+export const getEncountersByAnimalSuccess = (animalsEncounters, encounterType) => ({
     type: GET_ENCOUNTERS_BY_ANIMAL_SUCCESS,
-    animalsEncounters
+    animalsEncounters,
+    encounterType
 });
 
 export const getEncountersByZoo = (term) => dispatch => {
+    const encounterType = term;
     fetch(`${API_BASE_URL}/zoo/${term}`).then(res => {
         if (!res.ok) {
             return Promise.reject(res.statusText);
         }
         return res.json();
     }).then(zoosEncounters => {
-        dispatch(getEncountersByZooSuccess(zoosEncounters));
+        dispatch(getEncountersByZooSuccess(zoosEncounters, encounterType));
     });
 };
 
 export const GET_ENCOUNTERS_BY_ZOO_SUCCESS = 'GET_ENCOUNTERS_BY_ZOO_SUCCESS';
-export const getEncountersByZooSuccess = zoosEncounters => ({
+export const getEncountersByZooSuccess = (zoosEncounters, encounterType) => ({
     type: GET_ENCOUNTERS_BY_ZOO_SUCCESS,
-    zoosEncounters
+    zoosEncounters,
+    encounterType
 });
 
 export const SHOW_SIGNUP_FORM = 'SHOW_SIGNUP_FORM';

@@ -19,7 +19,7 @@ export class DeleteEncounter extends React.Component {
         if (this.props.showDeleteEncounter && this.props.currentDeleteForm===this.props.id) {   
             return (
                 <section>
-                    <p className='bold'>Are you sure you wish to permanently delete this encounter?</p>
+                    <p className='permanent-delete'>Are you sure you wish to permanently delete this encounter?</p>
                         <button type="button" className="delete-encounter-final" onClick={this.onClick}>Permanently delete this encounter</button>
                 </section>
             )

@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom';
 
 import {getEncountersByZoo} from '../actions';
 
+import './dropdowns.css';
+
 export class ZooDropdown extends React.Component {
     constructor(props) {
         super(props);
@@ -22,8 +24,8 @@ export class ZooDropdown extends React.Component {
         ));
 
     return (
-        <div>
-        <h3>Zoos</h3>
+        <div className='zoos-div'>
+        <h2 className='zoos-header'>Filter by Zoo</h2>
         <ul name="zoo-dropdown" className="zoo-dropdown">
             {zoo}
         </ul>

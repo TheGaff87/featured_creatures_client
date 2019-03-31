@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
+import './dropdowns.css';
 
 import {getEncountersByAnimal} from '../actions';
 
@@ -22,8 +23,8 @@ export class AnimalDropdown extends React.Component {
         ));
 
     return (
-        <div><br />
-            <h3 className='animals-header'>Animals</h3>
+        <div className='animals-div'>
+            <h2 className='animals-header'>Filter by Animal</h2>
         <ul name="animal-dropdown" className="animal-dropdown">
             {animal}
         </ul>

@@ -13,19 +13,15 @@ export class EditEncounter extends React.Component {
         e.preventDefault();
         const id = this.props.encounterId;
         if (this.encounterCost.value !== '' ||this.encounterSchedule.value !== '' || this.encounterDescription.value !== '') {
-            const encounter = {
-                encounterCost: '',
-                encounterSchedule: '',
-                encounterDescription: ''
-            }
+            const encounter = {}
             if (this.encounterCost.value !== '') {
-                encounter.encounterCost = this.encounterCost.value
+                encounter['encounterCost'] = this.encounterCost.value
             }
             if (this.encounterSchedule.value !== '') {
-                encounter.encounterSchedule = this.encounterSchedule.value
+                encounter['encounterSchedule'] = this.encounterSchedule.value
             }
             if (this.encounterDescription.value !== '') {
-                encounter.encounterDescription = this.encounterDescription.value
+                encounter['encounterDescription'] = this.encounterDescription.value
             }
             const token = this.props.authToken;
             this.props.dispatch(editEncounter(encounter, token, id));

@@ -14,7 +14,7 @@ export function SignupButton(props) {
 
     if (!props.isLoggedIn) {
     return (
-    <button type="button" className="signin-select" onClick={e => onClick(e)}>Create an account</button>
+    <button type="button" className="signup-select" onClick={e => onClick(e)}>Create an account</button>
     )
     } else {
         return null

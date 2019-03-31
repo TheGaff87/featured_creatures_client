@@ -1,8 +1,26 @@
-form.signin-form {
-    margin-top: 5em;
-    clear: both;
+form {
+    margin-bottom: 2em;
 }
 
-.hidden {
-    display: none;
+.signup-select, .signin-select {
+    margin-bottom: 2em;
+    display: block;
+    border: 1px solid #fb16ff;
+    color: #fb16ff;
+    background-color: #ffffff;
+    border-radius: 15px;
+    font-size: 1.25em;
+}
+
+.signup-button, .signin-button {
+    margin-top: 1em;
+    border: 1px solid #fb16ff;
+    background-color: #fb16ff;
+    color: #ffffff;
+    border-radius: 15px;
+    font-size: 1.25em;
+}
+
+@media only screen and (min-width: 710px) {
+
 }
