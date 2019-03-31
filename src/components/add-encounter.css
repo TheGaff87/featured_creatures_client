@@ -28,8 +28,9 @@
 
 .singular-button {
     border: 1px solid black;
-    color: black;
+    color: red;
     background-color: white;
     border-radius: 15px;
     font-size: 1.25em;
+    margin-bottom: 1em;
 }
