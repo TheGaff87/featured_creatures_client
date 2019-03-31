@@ -5,8 +5,8 @@
 }
 
 .demo {
-    border: 1px solid #fb16ff;
-    background-color: #fb16ff;
+    border: 1px solid #ca03ce;
+    background-color: #ca03ce;
     color: #ffffff;
     width: 250px;
     padding: .5em;
@@ -18,7 +18,7 @@
 }
 
 .demo p {
-    background-color: #fb16ff;
+    background-color: #ca03ce;
 }
 
 @media only screen and (min-width: 710px) {

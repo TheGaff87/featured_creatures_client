@@ -7,16 +7,16 @@
 }
 
 .add-encounter-button {
-    border: 1px solid #fb16ff;
-    color: #fb16ff;
+    border: 1px solid #ca03ce;
+    color: #ca03ce;
     background-color: #ffffff;
     border-radius: 15px;
     font-size: 1.25em;
 }
 
 .submit-encounter {
-    border: 1px solid #fb16ff;
-    background-color: #fb16ff;
+    border: 1px solid #ca03ce;
+    background-color: #ca03ce;
     color: #ffffff;
     border-radius: 15px;
     font-size: 1.25em;

@@ -43,7 +43,7 @@ export class AddEncounter extends React.Component {
             <form className='add-encounter-form' onSubmit={this.onSubmit}>
             <AddEncounterCheck />
             <label><span className='required'>Animal (required)</span>
-                <input type='text' className='animal' placeholder= 'Use singular form of animal featured in this encounter' size='50'
+                <input type='text' className='animal' placeholder= 'Use singular form of animal in this encounter' size='50'
                 ref={input => (this.animal = input)} required />
             </label>
             <label><span className='required'>Encounter Name(required)</span>

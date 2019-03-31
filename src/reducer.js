@@ -140,7 +140,7 @@ export default (state = initialState, action) => {
             showSigninForm: false,
 
             showAddEncounter: false,
-            showAddEncounterCheck: true,
+            showAddEncounterCheck: false,
 
             showEditEncounter: false,
             currentEditForm: 0,

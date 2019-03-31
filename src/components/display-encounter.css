@@ -34,17 +34,17 @@ a {
 .edit-encounter-button, .delete-encounter-button {
     display: block;
     margin: 0 auto;
-    border: 1px solid #fb16ff;
-    color: #fb16ff;
+    border: 1px solid #ca03ce;
+    color: #ca03ce;
     background-color: #ffffff;
     border-radius: 15px;
     font-size: 1.25em;
 }
 
 .edit-submit {
-    border: 1px solid #fb16ff;
+    border: 1px solid #ca03ce;
     color: #ffffff;
-    background-color: #fb16ff;
+    background-color: #ca03ce;
     border-radius: 15px;
     font-size: 1.25em;
 }
@@ -62,9 +62,9 @@ a {
 }
 
 .delete-encounter-final {
-    border: 1px solid #fb16ff;
+    border: 1px solid #ca03ce;
     color: #ffffff;
-    background-color: #fb16ff;
+    background-color: #ca03ce;
     border-radius: 15px;
     font-size: 1.25em;
     margin: 0 auto;
