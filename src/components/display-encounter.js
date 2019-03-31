@@ -6,10 +6,15 @@ import EditEncounterFields from './edit-encounter-fields';
 import EditEncounter from './edit-encounter';
 import DeleteEncounterButton from './delete-encounter-button';
 import DeleteEncounter from './delete-encounter';
+import {getAllEncounters} from '../actions';
 
 import './display-encounter.css';
 
 export function DisplayEncounter(props) {
+
+    function onClick(e) {
+        props.dispatch(getAllEncounters());
+    }
 
     const encounters = props.encounters.map((encounter, index) => (
         <section className="display-encounter" key={index} id={index}>
@@ -34,6 +39,7 @@ export function DisplayEncounter(props) {
         <div>
         <div>
             <h2 className='encounters-header'>{props.encounterType} Encounters</h2>
+            <button type='button' className='all-encounters' onClick={e => onClick(e)}>Show All Encounters</button>
             {encounters}
         </div>
         </div>

@@ -40,7 +40,8 @@ export default (state = initialState, action) => {
     }
     if (action.type === actions.GET_ALL_ENCOUNTERS_SUCCESS) {
         return Object.assign({}, state, {
-            encounters: action.encounters
+            encounters: action.encounters,
+            encounterType: 'All Animal'
         })
     }
     if (action.type === actions.GET_ENCOUNTERS_BY_ANIMAL_SUCCESS) {

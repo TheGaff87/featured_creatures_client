@@ -27,7 +27,6 @@ a {
 
 .encounters-header {
     margin-top: 2em;
-    margin-bottom: 1em;
     text-align: center;
 }
 
@@ -69,6 +68,18 @@ a {
     font-size: 1.25em;
     margin: 0 auto;
     display: block;
+}
+
+button.all-encounters {
+    border-style: none;
+    color: #1616ff;
+    border-radius: 15px;
+    font-size: 1.5em;
+    font-family: 'Permanent Marker', cursive;
+    margin-bottom: 2em;
+    margin-right: auto;
+    margin-left: auto;
+    display: block; 
 }
 
 
