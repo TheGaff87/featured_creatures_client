@@ -21,6 +21,10 @@ form {
     font-size: 1.25em;
 }
 
+.password-length, .invalid-signin {
+    color: red;
+}
+
 @media only screen and (min-width: 710px) {
 
 }

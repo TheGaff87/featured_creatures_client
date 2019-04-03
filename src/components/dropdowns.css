@@ -1,7 +1,3 @@
-ul li a {
-    text-decoration: none;
-}
-
 ul {
     list-style: none;
     margin-top: 0;
@@ -11,13 +7,13 @@ ul {
 .animals-header {
     clear: both;
     margin-top: 0;
-    color: #1616ff;
+    color: #8b16ff;
     margin-bottom: .5em;
 }
 
 .zoos-header {
     padding-top: 1em;
-    color: #1616ff;
+    color: #8b16ff;
     margin-bottom: .5em;
 }
 
@@ -29,7 +25,7 @@ ul {
     font-size: 1.15em;
 }
 
-@media only screen and (min-width: 710px) {
+@media only screen and (min-width: 896px) {
 
 .animals-div {
     margin-top: 2em;

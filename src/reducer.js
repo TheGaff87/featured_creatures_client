@@ -6,7 +6,10 @@ const initialState = {
     authToken: '',
 
     showSignupForm: false,
+    showSignupCheck: false,
+
     showSigninForm: false,
+    showSigninCheck: false,
 
     showAddEncounter: false,
     showAddEncounterCheck: false,
@@ -61,9 +64,19 @@ export default (state = initialState, action) => {
             showSignupForm: action.change
         })
     }
+    if (action.type === actions.SHOW_SIGNUP_CHECK) {
+        return Object.assign({}, state, {
+            showSignupCheck: true
+        })
+    }
     if (action.type === actions.SHOW_SIGNIN_FORM) {
         return Object.assign({}, state, {
             showSigninForm: action.change
+        })
+    }
+    if (action.type === actions.SHOW_SIGNIN_CHECK) {
+        return Object.assign({}, state, {
+            showSigninCheck: true    
         })
     }
     if (action.type === actions.LOGGED_IN_SUCCESS) {
@@ -71,7 +84,9 @@ export default (state = initialState, action) => {
             authToken: action.authToken,
             isLoggedIn: true,
             showSigninForm: false,
-            showSignupForm: false
+            showSignupForm: false,
+            showSignupCheck: false,
+            showSigninCheck: false
         })
     }
     if (action.type === actions.UPDATE_CURRENT_USER) {

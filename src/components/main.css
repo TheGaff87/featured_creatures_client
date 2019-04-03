@@ -21,6 +21,15 @@ label {
     margin-bottom: 1em;
 }
 
+a {
+    text-decoration: none;
+    color: #1616ff;
+}
+
+button {
+    cursor: pointer;
+}
+
 @media only screen and (min-width: 710px) {
 
     .welcome-user, .not-logged-in {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import {signup} from '../actions';
+import {signup, showSignupCheck} from '../actions';
 
 import './signin.css'
 
@@ -13,11 +13,15 @@ export class Signup extends React.Component {
 
     onSubmit(e) {
         e.preventDefault();
+        if (this.password.value.length < 5) {
+            this.props.dispatch(showSignupCheck());
+        }else{
         const user = {
             username: this.username.value,
             password: this.password.value
             };
         this.props.dispatch(signup(user));
+        }
     }
 
 
@@ -31,7 +35,7 @@ export class Signup extends React.Component {
                 ref={input => (this.username = input)} required />
             </label>
             <label><span className='required'>Password (required)</span>
-                <input type='password1' className='password' placeholder= 'Password must be at least 5 characters' size='50'
+                <input type='password' className='password' placeholder= 'Password must be at least 5 characters' size='50'
                 ref={input => (this.password = input)} required />
             </label>
             <button type="submit" className="signup-button">Sign up</button>

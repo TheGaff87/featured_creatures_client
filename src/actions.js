@@ -132,6 +132,7 @@ export const login = user => dispatch => {
     })
     .then(res => {
         if (!res.ok) {
+            dispatch(showSigninCheck());
             return Promise.reject(res.statusText);
         }
         return res.json();
@@ -262,4 +263,14 @@ export const showAddEncounterCheck = () => ({
 export const HIDE_ADD_ENCOUNTER_CHECK = 'HIDE_ADD_ENCOUNTER_CHECK';
 export const hideAddEncounterCheck = () => ({
     type: HIDE_ADD_ENCOUNTER_CHECK
+})
+
+export const SHOW_SIGNUP_CHECK = 'SHOW_SIGNUP_CHECK';
+export const showSignupCheck = () => ({
+    type: SHOW_SIGNUP_CHECK
+})
+
+export const SHOW_SIGNIN_CHECK= 'SHOW_SIGNIN_CHECK';
+export const showSigninCheck = () => ({
+    type: SHOW_SIGNIN_CHECK
 })

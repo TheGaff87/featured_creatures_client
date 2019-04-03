@@ -19,17 +19,29 @@ export class AddEncounter extends React.Component {
         const user = this.props.currentUser;
         const encounter = {
             animal: this.animal.value,
-            encounterImage: this.encounterImage.value,
             encounterName: this.encounterName.value,
-            encounterWebsite: this.encounterWebsite.value,
             zooName: this.zooName.value,
             zooLocation: this.zooLocation.value,
-            zooWebsite: this.zooWebsite.value,
             encounterCost: this.encounterCost.value,
             encounterSchedule: this.encounterSchedule.value,
             encounterDescription: this.encounterDescription.value,
             addedBy: user
             };
+        if (this.encounterWebsite.value !== '' && this.encounterWebsite.value.indexOf('http') === -1) {
+            encounter['encounterWebsite'] = `https://${this.encounterWebsite.value}`
+        }else if (this.encounterWebsite.value !== '') {
+            encounter['encounterWebsite'] = this.encounterWebsite.value
+        }
+        if (this.encounterImage.value.indexOf('http') === -1) {
+            encounter['encounterImage'] = `https://${this.encounterImage.value}`
+        }else{
+            encounter['encounterImage'] = this.encounterImage.value
+        }
+        if (this.zooWebsite.value.indexOf('http') === -1) {
+            encounter['zooWebsite'] = `https://${this.zooWebsite.value}`
+        }else{
+            encounter['zooWebsite'] = this.zooWebsite.value
+        }
         const token = this.props.authToken;
         this.props.dispatch(addNewEncounter(encounter, token));
         document.getElementsByClassName('add-encounter-form')[0].reset();
@@ -51,7 +63,7 @@ export class AddEncounter extends React.Component {
                 ref={input => (this.encounterName = input)} required/>
             </label>
             <label><span className='required'>Encounter Image (required)</span>
-                <input type='text' className='encounter-image' placeholder= 'Enter the url for the encounter image' size='50'
+                <input type='text' className='encounter-image' placeholder= 'Enter url for the encounter image from website' size='50'
                 ref={input => (this.encounterImage = input)} required/>
             </label>
             <label><span className='required'>Encounter Website</span>
@@ -75,7 +87,7 @@ export class AddEncounter extends React.Component {
                 ref={input => (this.encounterCost = input)} required />
             </label>
             <label><span className='required'>Encounter Schedule (required)</span>
-                <input type='text' className='encounter-schedule' placeholder= 'Enter the encounter schedule' size='50'
+                <input type='text' className='encounter-schedule' placeholder= 'Ex. Tuesday, Thursday' size='50'
                 ref={input => (this.encounterSchedule = input)} required />
             </label>
             <label><span className='required'>Encounter Description (required)</span>

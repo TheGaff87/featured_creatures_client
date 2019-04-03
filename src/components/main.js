@@ -2,8 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import NotLoggedIn from './not-logged-in';
 import SignupButton from './signup-button';
+import SignupCheck from './signup-check';
 import Signup from './signup';
 import SigninButton from './signin-button';
+import SigninCheck from './signin-check';
 import Signin from './signin';
 import LoggedIn from './logged-in';
 import AddEncounterButton from './add-encounter-button';
@@ -21,8 +23,10 @@ export class Main extends React.Component {
             {!this.props.isLoggedIn ? <NotLoggedIn /> : <LoggedIn />}
             <section className="top-buttons">
                 <SignupButton />
+                <SignupCheck />
                 <Signup />
                 <SigninButton />
+                <SigninCheck />
                 <Signin />
                 <AddEncounterButton />
                 <AddEncounter />
