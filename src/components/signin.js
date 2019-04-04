@@ -33,7 +33,7 @@ export class Signin extends React.Component {
                 <input type='password2' className='password' placeholder= 'Password must be at least 5 characters' size='50'
                 ref={input => (this.password = input)} required />
             </label>
-            <button type="submit" className="signin-button">Signin</button>
+            <button type="submit" className="signin-button">Sign in</button>
             </form>
         </section>
     )

@@ -19,6 +19,7 @@ a {
 
 .display-encounter p {
     text-align: center;
+    font-size: 1.5em;
 }
 
 .display-encounter span {
@@ -95,5 +96,9 @@ button.all-encounters {
     .display-encounter img {
         width: 500px;
         height: 375px;
+    }
+
+    button.all-encounters {
+        font-size: 1.75em;
     }
 }

@@ -14,7 +14,7 @@ export function SigninButton(props) {
 
     if (!props.isLoggedIn) {
     return (
-    <button type="button" className="signin-select" onClick={e => onClick(e)}>Already have an account? Login!</button>
+    <button type="button" className="signin-select" onClick={e => onClick(e)}>Already have an account? Log in!</button>
     )
     } else {
         return null

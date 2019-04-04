@@ -30,15 +30,15 @@ button {
     cursor: pointer;
 }
 
+.name-welcome {
+    font-weight: bold;
+    color: #8b16ff;
+}
+
 @media only screen and (min-width: 710px) {
 
     .welcome-user, .not-logged-in {
-        font-size: 1.5em;
-    }
-
-    .name-welcome {
-        font-weight: bold;
-        color: #8b16ff;
+        font-size: 1.75em;
     }
 }
 

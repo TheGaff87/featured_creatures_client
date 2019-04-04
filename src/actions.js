@@ -1,7 +1,7 @@
 import {API_BASE_URL} from './config';
 
 export const getAnimals = () => dispatch => {
-    fetch(`${API_BASE_URL}/animals`).then(res => {
+    return fetch(`${API_BASE_URL}/animals`).then(res => {
         if (!res.ok) {
             return Promise.reject(res.statusText);
         }
@@ -18,7 +18,7 @@ export const getAnimalsSuccess = animals => ({
 });
 
 export const getZoos = () => dispatch => {
-    fetch(`${API_BASE_URL}/zoos`).then(res => {
+    return fetch(`${API_BASE_URL}/zoos`).then(res => {
         if (!res.ok) {
             return Promise.reject(res.statusText);
         }
@@ -35,7 +35,7 @@ export const getZoosSuccess = zoos => ({
 });
 
 export const getAllEncounters = () => dispatch => {
-    fetch(`${API_BASE_URL}/encounters`).then(res => {
+    return fetch(`${API_BASE_URL}/encounters`).then(res => {
         if (!res.ok) {
             return Promise.reject(res.statusText);
         }
@@ -54,7 +54,7 @@ export const getAllEncountersSuccess = encounters => ({
 
 export const getEncountersByAnimal = (term) => dispatch => {
     const encounterType = term;
-    fetch(`${API_BASE_URL}/animal/${term}`).then(res => {
+    return fetch(`${API_BASE_URL}/animal/${term}`).then(res => {
         if (!res.ok) {
             return Promise.reject(res.statusText);
         }
@@ -73,7 +73,7 @@ export const getEncountersByAnimalSuccess = (animalsEncounters, encounterType) =
 
 export const getEncountersByZoo = (term) => dispatch => {
     const encounterType = term;
-    fetch(`${API_BASE_URL}/zoo/${term}`).then(res => {
+    return fetch(`${API_BASE_URL}/zoo/${term}`).then(res => {
         if (!res.ok) {
             return Promise.reject(res.statusText);
         }
@@ -102,9 +102,9 @@ export const showSigninForm = (change) => ({
     change
 });
 
-export const signup = user =>dispatch => {
+export const signup = user => dispatch => {
     const userData = user;
-    fetch(`${API_BASE_URL}/users`, {
+    return fetch(`${API_BASE_URL}/users`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -123,7 +123,7 @@ export const signup = user =>dispatch => {
 
 export const login = user => dispatch => {
     const username = user.username;
-    fetch(`${API_BASE_URL}/auth/login`, {
+    return fetch(`${API_BASE_URL}/auth/login`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -162,7 +162,7 @@ export const showAddEncounterForm = (change) => ({
 
 export const addNewEncounter = (encounter, token) => dispatch => {
     const authToken = token.authToken;
-    fetch(`${API_BASE_URL}/encounters`, {
+    return fetch(`${API_BASE_URL}/encounters`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -197,7 +197,7 @@ export const showEditEncounterForm = (change, currentForm) => ({
 
 export const editEncounter = (encounter, token, id) => dispatch => {
     const authToken = token.authToken;
-    fetch(`${API_BASE_URL}/encounters/${id}`, {
+    return fetch(`${API_BASE_URL}/encounters/${id}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json',
@@ -230,7 +230,7 @@ export const showDeleteEncounterForm = (change, currentForm) => ({
 
 export const deleteEncounter = (token, id) => dispatch => {
     const authToken = token.authToken;
-    fetch(`${API_BASE_URL}/encounters/${id}`, {
+    return fetch(`${API_BASE_URL}/encounters/${id}`, {
         method: 'DELETE',
         headers: {
             'content-type': 'application/json',

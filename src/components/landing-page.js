@@ -35,7 +35,7 @@ export class LandingPage extends React.Component {
     render() {
         return (
         <section className="landing-page">
-            <p>Do you love animals? Featured Creatures makes it easy to find behind-the-scenes, up close and personal encounters with your favorite critters. If you create an account, you can add new encounters. Click the photo to get started or click the DEMO button to log directly into the demo account.</p>
+            <p>Do you love animals? Featured Creatures makes it easy to go beyond the ordinary zoo experience and engage in behind-the-scenes, up-close-and-personal encounters with your favorite critters. If you create an account, you can add new encounters. Click the photo to get started from scratch or click the DEMO button to explore using the demo account.</p>
             <Link to="/main"><input type="image" className="start-button" alt="koala-encounter" src={require('../koala-encounter.jpg')} onClick={this.startButton}></input></Link>
             <br />
             <Link to='/main'><button type='button' className='demo' onClick={this.startDemo}>
