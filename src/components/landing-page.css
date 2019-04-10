@@ -32,11 +32,15 @@
         margin-right: 5em;
     }
 
-    p {
+    .demo p {
         font-size: 1.25em;
     }
 
     .demo {
         margin-top: 5em;
+    }
+
+    .landing-welcome {
+        font-size: 1.75em;
     }
 }
