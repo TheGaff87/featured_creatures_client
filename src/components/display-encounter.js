@@ -16,14 +16,6 @@ export class DisplayEncounter extends React.Component {
       this.onClick = this.onClick.bind(this);
     }
 
-    scrollToDiv() {
-        this.el.scrollIntoView({behavior: 'smooth'})
-    }
-
-    componentDidUpdate() {
-        this.scrollToDiv();
-    }
-
     onClick(e) {
         this.props.dispatch(getAllEncounters());
     }
@@ -51,7 +43,7 @@ export class DisplayEncounter extends React.Component {
 
     return (
         <div>
-        <div ref={el => {this.el = el; }}>
+        <div>
             <h2 className='encounters-header'>{this.props.encounterType} Encounters</h2>
             <button type='button' className='all-encounters' onClick={this.onClick}>Show All Encounters</button>
             {encounters}
