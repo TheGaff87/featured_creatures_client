@@ -31,11 +31,11 @@ export class Signup extends React.Component {
         <section className='signup'>
             <form className='signup-form' onSubmit={this.onSubmit}>
             <label><span className='required'>Username (required)</span>
-                <input type='text' className='username1' placeholder= 'Enter your username' size='50'
+                <input type='text' className='username1' placeholder= 'Enter your username' size='40'
                 ref={input => (this.username = input)} required />
             </label>
             <label><span className='required'>Password (required)</span>
-                <input type='password' className='password' placeholder= 'Password must be at least 5 characters' size='50'
+                <input type='password' className='password' placeholder= 'Password must be at least 5 characters' size='40'
                 ref={input => (this.password = input)} required />
             </label>
             <button type="submit" className="signup-button">Sign up</button>

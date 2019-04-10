@@ -37,11 +37,11 @@ export class EditEncounter extends React.Component {
         <section className='edit-encounter-section'>
             <form action='/api/users/' method='post' className='edit-encounter-form'>
             <label><span className='required'>Encounter Cost</span>
-                <input type='text' className='encounter-cost' placeholder= 'Enter updated encounter cost' size='50'
+                <input type='text' className='encounter-cost' placeholder= 'Enter updated encounter cost' size='40'
                 ref={input => (this.encounterCost = input)} />
             </label>
             <label><span className='required'>Encounter Schedule</span>
-                <input type='text' className='encounter-schedule' placeholder= 'Enter updated encounter schedule' size='50'
+                <input type='text' className='encounter-schedule' placeholder= 'Enter updated encounter schedule' size='40'
                 ref={input => (this.encounterSchedule = input)} />
             </label>
             <label><span className='required'>Encounter Description</span>

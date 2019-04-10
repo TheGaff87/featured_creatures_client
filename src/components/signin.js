@@ -26,11 +26,11 @@ export class Signin extends React.Component {
         <section className='signin'>
             <form className='signin-form' onSubmit={this.onSubmit}>
             <label><span className='required'>Username (required)</span>
-                <input type='text' className='username2' placeholder= 'Enter your username' size='50'
+                <input type='text' className='username2' placeholder= 'Enter your username' size='40'
                 ref={input => (this.username = input)} required />
             </label>
             <label><span className='required'>Password (required)</span>
-                <input type='password2' className='password' placeholder= 'Password must be at least 5 characters' size='50'
+                <input type='password2' className='password' placeholder= 'Password must be at least 5 characters' size='40'
                 ref={input => (this.password = input)} required />
             </label>
             <button type="submit" className="signin-button">Sign in</button>

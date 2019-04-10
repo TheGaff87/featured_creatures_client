@@ -55,39 +55,39 @@ export class AddEncounter extends React.Component {
             <form className='add-encounter-form' onSubmit={this.onSubmit}>
             <AddEncounterCheck />
             <label><span className='required'>Animal (required)</span>
-                <input type='text' className='animal' placeholder= 'Use singular form of animal in this encounter' size='50'
+                <input type='text' className='animal' placeholder= 'Use singular form of animal in this encounter' size='45'
                 ref={input => (this.animal = input)} required />
             </label>
             <label><span className='required'>Encounter Name (required)</span>
-                <input type='text' className='encounter-name' placeholder= 'Enter the encounter name' size='50'
+                <input type='text' className='encounter-name' placeholder= 'Enter the encounter name' size='45'
                 ref={input => (this.encounterName = input)} required/>
             </label>
             <label><span className='required'>Encounter Image (required)</span>
-                <input type='text' className='encounter-image' placeholder= 'Enter url for the encounter image from website' size='50'
+                <input type='text' className='encounter-image' placeholder= 'Enter url for encounter image' size='45'
                 ref={input => (this.encounterImage = input)} required/>
             </label>
             <label><span className='required'>Encounter Website</span>
-                <input type='text' className='encounter-website' placeholder= 'Enter the encounter website, if available' size='50'
+                <input type='text' className='encounter-website' placeholder= 'Enter the encounter website, if available' size='45'
                 ref={input => (this.encounterWebsite = input)} />
             </label>
             <label><span className='required'>Zoo Name (required)</span>
-                <input type='text' className='zoo-name' placeholder= 'Enter the zoo name' size='50'
+                <input type='text' className='zoo-name' placeholder= 'Enter the zoo name' size='45'
                 ref={input => (this.zooName = input)} required />
             </label>
             <label><span className='required'>Zoo Website (required)</span>
-                <input type='text' className='zoo-website' placeholder= 'Enter the zoo website' size='50'
+                <input type='text' className='zoo-website' placeholder= 'Enter the zoo website' size='45'
                 ref={input => (this.zooWebsite = input)} required />
             </label>
             <label><span className='required'>Zoo Location (required)</span>
-                <input type='text' className='zoo-location' placeholder= 'Ex: San Francisco, CA, USA or Sydney, Australia' size='50'
+                <input type='text' className='zoo-location' placeholder= 'Ex: San Francisco, CA, USA or Sydney, Australia' size='45'
                 ref={input => (this.zooLocation = input)} required />
             </label>
             <label><span className='required'>Encounter Cost (required)</span>
-                <input type='text' className='encounter-cost' placeholder= 'Ex. $60 USD' size='50'
+                <input type='text' className='encounter-cost' placeholder= 'Ex. $60 USD' size='45'
                 ref={input => (this.encounterCost = input)} required />
             </label>
             <label><span className='required'>Encounter Schedule (required)</span>
-                <input type='text' className='encounter-schedule' placeholder= 'Ex. Tuesday, Thursday' size='50'
+                <input type='text' className='encounter-schedule' placeholder= 'Ex. Tuesday, Thursday' size='45'
                 ref={input => (this.encounterSchedule = input)} required />
             </label>
             <label><span className='required'>Encounter Description (required)</span>

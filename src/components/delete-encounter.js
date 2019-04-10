@@ -11,7 +11,6 @@ export class DeleteEncounter extends React.Component {
     onClick(e) {
         const token = this.props.authToken;
         const id = this.props.encounterId;
-        console.log(id);
         this.props.dispatch(deleteEncounter(token, id));
     }
 
