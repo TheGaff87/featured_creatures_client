@@ -61,7 +61,8 @@ export default (state = initialState, action) => {
     }
     if (action.type === actions.SHOW_SIGNUP_FORM) {
         return Object.assign({}, state, {
-            showSignupForm: action.change
+            showSignupForm: action.change,
+            showSignupCheck: false,
         })
     }
     if (action.type === actions.SHOW_SIGNUP_CHECK) {
@@ -71,7 +72,8 @@ export default (state = initialState, action) => {
     }
     if (action.type === actions.SHOW_SIGNIN_FORM) {
         return Object.assign({}, state, {
-            showSigninForm: action.change
+            showSigninForm: action.change,
+            showSigninCheck: false
         })
     }
     if (action.type === actions.SHOW_SIGNIN_CHECK) {
@@ -119,7 +121,8 @@ export default (state = initialState, action) => {
     if (action.type === actions.SHOW_EDIT_ENCOUNTER_FORM) {
         return Object.assign({}, state, {
             showEditEncounter: action.change,
-            currentEditForm: action.currentForm
+            currentEditForm: action.currentForm,
+            editEncounterFields: false
         })
     }
     if (action.type === actions.EDIT_ENCOUNTER_SUCCESS) {

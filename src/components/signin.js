@@ -25,6 +25,10 @@ export class Signin extends React.Component {
     return (
         <section className='signin'>
             <form className='signin-form' onSubmit={this.onSubmit}>
+            <div className='main-demo'>
+            <p>Demo Username: user1</p>
+            <p>Demo Password: pass1</p>
+            </div>
             <label><span className='required'>Username (required)</span>
                 <input type='text' className='username2' placeholder= 'Enter your username' size='40'
                 ref={input => (this.username = input)} required />

@@ -25,6 +25,14 @@ form {
     color: red;
 }
 
-@media only screen and (min-width: 710px) {
+.bold {
+    font-weight: bold;
+}
 
+.main-demo {
+    border: 1px solid black;
+    width: 22%;
+    padding-left: 12px;
+    margin-bottom: 2em;
+    border-radius: 25px;
 }

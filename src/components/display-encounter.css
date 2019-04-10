@@ -83,7 +83,9 @@ button.all-encounters {
     display: block; 
 }
 
-
+.must-enter-fields {
+    color: red;
+}
 
 @media only screen and (min-width: 480px) and (max-width: 709px) {
     .display-encounter img {
