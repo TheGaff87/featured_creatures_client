@@ -1,68 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Featured Creatures
+Find behind-the-scenes, up-close-and-personal encounters with your favorite animals at zoos in your city and around the world.
 
-## Available Scripts
+You are currently viewing the client-side repo. [Featured Creatures server-side GitHub repo](https://github.com/TheGaff87/featured-creatures-api)
 
-In the project directory, you can run:
+## Link to live app:
+https://featured-creatures.herokuapp.com/
 
-### `npm start`
+## Screenshots:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Screenshot of landing page: ![Landing page](/screenshots/landing-page.png)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Screenshot of Sign up and Sign in components: ![Sign up and Log in components](/screenshots/signup-signin.png)
 
-### `npm test`
+### Screenshot of filters available for encounters: ![Filters for encounters](/screenshots/filters.png)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Screenshot of encounter when not logged in or an encounter you did not add: ![Basic encounter](/screenshots/encounter-not-logged.png)
 
-### `npm run build`
+### Screenshot of encounter you created (only accessible when logged in): ![Encounter you added](/screenshots/edit-delete.png)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Screenshot of 'Add New Encounter' form (only accessible when logged in: ![Add Encounter form](/screenshots/add-new-encounter.png)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Functionality:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This app allows any user to view all animal encounters in the database and filter encounters by animal or zoo.  Users can create an account which gives them the additional ability to add new encounters and edit or delete any encounter they add. There is also a demo account with pre-created events to help users get started.
 
-### `npm run eject`
+## Technologies Used:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Frontend: React | Redux | JavaScript ES6 | CSS3  
+Backend: Node.js | Express.js | Mocha | Chai | Mongo(ose)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## API Documentation
+### POST request to '/api/users/':
+Used to create new user account. Expects a JSON object containing a string username and a password between 5 and 72 characters. Creates user account and returns a JSON object containing username.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### POST request to '/api/auth/login':
+Used to create authToken for existing user account. Expects a JSON object containing previously created username and password. Returns JSON object containing "authToken" that must be included as a header for all requests to protected endpoints.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### GET request to '/api/encounters':
+Used to get all encounters from database.
 
-## Learn More
+### GET request to '/api/animals':
+Used to get all distinct animal names in database for filtering. Returns list containing all animals.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### GET request to '/api/zoos':
+Used to get all distinct zoo names in database for filtering. Returns list containing all zoos.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### GET request to '/api/animal/:term':
+Expects parameter containing requested animal. Returns JSON object containing all encounters for requested animal.
 
-### Code Splitting
+### GET request to '/api/zoo/:term':
+Expects parameter containing requested zoo. Returns JSON object containing all encounters for requested zoo.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### POST request to '/api/encounters/':
+Requires authToken and expects all required fields in request body. New encounter is created in database and a JSON object containing the new encounter is returned.
 
-### Analyzing the Bundle Size
+### PUT request to '/api/encounters/:id':
+Requires authToken. Expects parameter containing encounter ID. Allows user to change encounter cost, encounter schedule, and encounter description for encounters the user added. None of these fields is required, but at least one of the appropriate fields must exist in the request body. The requested field(s) are updated; no response is returned.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### DELETE request to '/api/encounters/:id':
+Requires authToken. Expects parameter containing encounter ID. Appropriate encounter is deleted; nothing is returned.
